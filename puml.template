@@ -1,0 +1,36 @@
+@startuml
+
+skinparam handwritten true
+
+skinparam component {
+  FontName Bradley Hand
+  FontSize 17
+  BorderColor black
+  BackgroundColor white
+
+  StereotypeFontName Bradley Hand
+  StereotypeFontColor White
+  
+  ArrowFontName Bradley Hand
+  ArrowColor gray
+  ArrowFontColor black
+}
+
+skinparam interface {
+  BorderColor blue
+  BackgroundColor black
+}
+
+skinparam rectangle {
+    FontName Bradley Hand
+    FontSize 17
+}
+
+skinparam node {
+    FontName Bradley Hand
+    FontSize 17
+}
+
+${pumlDefinitions}
+
+@enduml

@@ -1,0 +1,8 @@
+﻿target,source,endpoint,count
+"travel-service","spa","/journeys/{journeyId}",2
+"travel-service","ios-app","/journeys/{journeyId}",2
+"customer-service","ios-app","/customers/{customerId}",2
+"customer-service","travel-service","/customers/{customerId}",2
+"customer-service","accounting-service","/customers/{customerId}",2
+"sales-service","travel-service","/campagnes/{campagneId}",13
+"sales-service","accounting-service","/campagnes/{campagneId}",2
