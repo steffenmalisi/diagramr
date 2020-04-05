@@ -9,7 +9,11 @@
   },
   "author": "https://github.com/steffenmalisi",
   "license": "Apache-2.0",
+  "bin": {
+    "diagramr": "./index.js"
+  },
   "dependencies": {
+    "commander": "^5.0.0",
     "csvtojson": "^2.0.10",
     "uuid": "^7.0.2"
   },
