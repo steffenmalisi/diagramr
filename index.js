@@ -1,59 +1,29 @@
 #!/usr/bin/env node
 'use strict';
 
-const PumlService = require('./puml.service');
-const pumlService = new PumlService();
+const GeneratorService = require('./generator.service');
+const generatorService = new GeneratorService();
 const program = require('commander');
 
 program
-  .arguments('<csv>')
+  .arguments('<i>')
   .option(
     '-t, --template <template>',
-    'The template file to use. If not specified the a shipped default template is used.'
+    'The template file to use. If not specified the a shipped default template is used.',
+    'templates/puml.template'
   )
   .option(
     '-o, --output <output>',
-    'The output path to be used. If not specified it will default to output.puml in your current directory.'
+    'The output path to be used. If not specified it will default to output.puml in your current directory.',
+    'output.puml'
   )
-  .action(function(csv) {
-    const template = getTemplatePathOrDefault(program.template);
-    const output = getOutputPathOrDefault(program.output);
-    pumlService.createPumlFromCsv(csv, template, output);
+  .action(function(i) {
+    console.log(
+      'Generate "%s" from "%s" with template "%s"',
+      program.output,
+      i,
+      program.template
+    );
+    generatorService.generate(i, program.output, program.template);
   })
   .parse(process.argv);
-
-/**
- * Checks if the given path is valid. If true it returns this path.
- * If not, it returns the default.
- * @param {String} templatePath
- * @return {String} valid template path
- */
-function getTemplatePathOrDefault(templatePath) {
-  return getOrDefault(templatePath, 'puml.template');
-}
-
-/**
- * Checks if the given path is valid. If true it returns this path.
- * If not, it returns the default.
- * @param {String} outputPath
- * @return {String} valid output path
- */
-function getOutputPathOrDefault(outputPath) {
-  return getOrDefault(outputPath, 'output.puml');
-}
-
-/**
- * Checks if the given path is valid. If true it returns this path.
- * If not, it returns the default.
- * @param {String} path
- * @param {String} defaultPath
- * @return {String} valid output path
- */
-function getOrDefault(path, defaultPath) {
-  if (path == null) {
-    // TODO check path
-    return defaultPath;
-  } else {
-    return path;
-  }
-}

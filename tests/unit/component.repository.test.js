@@ -1,5 +1,5 @@
 const componentRepository = require('../../component.repository');
-const Component = require('../../puml-component');
+const Component = require('../../component.type');
 
 describe('Test if the repository works', () => {
   it('adds a component correctly to repository', () => {

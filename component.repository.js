@@ -1,7 +1,7 @@
 'use strict';
 
 const components = new Map();
-const Component = require('./puml-component');
+const Component = require('./component.type');
 
 const ComponentRepository = {
   has: key => components.has(key),

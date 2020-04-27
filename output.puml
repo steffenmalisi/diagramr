@@ -1,0 +1,55 @@
+@startuml
+
+skinparam handwritten true
+
+skinparam component {
+  FontName Bradley Hand
+  FontSize 17
+  BorderColor black
+  BackgroundColor white
+
+  StereotypeFontName Bradley Hand
+  StereotypeFontColor White
+  
+  ArrowFontName Bradley Hand
+  ArrowColor gray
+  ArrowFontColor black
+}
+
+skinparam interface {
+  BorderColor blue
+  BackgroundColor black
+}
+
+skinparam rectangle {
+    FontName Bradley Hand
+    FontSize 17
+}
+
+skinparam node {
+    FontName Bradley Hand
+    FontSize 17
+}
+
+component [travel-service] as 8ceb3f2127fd489ab378dc4e03aa2ac1 
+component [spa] as f7cb5dcf319949d5a66d142545d09146 
+component [ios-app] as aa7a051c78a64552be22b819dd464868 
+component [customer-service] as 4855bd8d7ce449abaf9a149dbefde652 
+component [accounting-service] as a9f1234ddb844e41b0692c18e02d46de 
+component [sales-service] as 750de88621c946e18ca9415015792541 
+() "/journeys/{journeyId}" as cffc15a43d1340229c66a20a6a4e9ad5 
+cffc15a43d1340229c66a20a6a4e9ad5 -- 8ceb3f2127fd489ab378dc4e03aa2ac1 
+f7cb5dcf319949d5a66d142545d09146 ..> cffc15a43d1340229c66a20a6a4e9ad5 
+aa7a051c78a64552be22b819dd464868 ..> cffc15a43d1340229c66a20a6a4e9ad5 
+() "/customers/{customerId}" as 738476ea471d4d5a888687f8f72456cb 
+738476ea471d4d5a888687f8f72456cb -- 4855bd8d7ce449abaf9a149dbefde652 
+aa7a051c78a64552be22b819dd464868 ..> 738476ea471d4d5a888687f8f72456cb 
+8ceb3f2127fd489ab378dc4e03aa2ac1 ..> 738476ea471d4d5a888687f8f72456cb 
+a9f1234ddb844e41b0692c18e02d46de ..> 738476ea471d4d5a888687f8f72456cb 
+() "/campagnes/{campagneId}" as 295f12d92d0b47cfa404bc9de4181d37 
+295f12d92d0b47cfa404bc9de4181d37 -- 750de88621c946e18ca9415015792541 
+8ceb3f2127fd489ab378dc4e03aa2ac1 ..> 295f12d92d0b47cfa404bc9de4181d37 
+a9f1234ddb844e41b0692c18e02d46de ..> 295f12d92d0b47cfa404bc9de4181d37 
+
+
+@enduml
